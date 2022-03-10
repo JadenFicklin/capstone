@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginRegister from "./components/LoginRegister";
+import Success from "./components/Success";
+import TopVideos from "./components/TopVideos";
+import TV from "./components/TV";
+import UploadVideo from "./components/UploadVideo";
+import Error from "./components/Error";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginRegister />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/topvideos" element={<TopVideos />} />
+        <Route path="/tv" element={<TV />} />
+        <Route path="/uploadvideo" element={<UploadVideo />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </Router>
   );
 }
 
